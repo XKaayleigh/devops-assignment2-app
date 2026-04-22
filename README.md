@@ -60,3 +60,4 @@ running-app/
 └── templates/
     └── index.html     # Frontend UI
 ```
+#updated for CI test
