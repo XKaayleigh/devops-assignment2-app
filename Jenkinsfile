@@ -21,17 +21,13 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                script {
-                    docker.build("${DOCKER_HUB_REPO}:${IMAGE_TAG}")
-                }
+                sh "docker build -t ${DOCKER_HUB_REPO}:${IMAGE_TAG} ."
             }
         }
 
         stage('Tag Image') {
             steps {
-                script {
-                    sh "docker tag ${DOCKER_HUB_REPO}:${IMAGE_TAG} ${DOCKER_HUB_REPO}:latest"
-                }
+                sh "docker tag ${DOCKER_HUB_REPO}:${IMAGE_TAG} ${DOCKER_HUB_REPO}:latest"
             }
         }
 
